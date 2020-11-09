@@ -296,21 +296,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-height: 600px) {
-	#hero .hero-container {
-		transform: scale(0.6, 0.6);
-	}
+  #hero .hero-container {
+    transform: scale(0.6, 0.6);
+  }
 }
 
 @media (max-height: 350px) {
-	#hero .hero-container {
-		transform: scale(0.5, 0.5);
-	}
+  #hero .hero-container {
+    transform: scale(0.5, 0.5);
+  }
 }
 
 @media (max-height: 275px) {
-	#hero .hero-container {
-		overflow: auto;
-	}
+  #hero .hero-container {
+    overflow: auto;
+  }
 }
 
 /*--------------------------------------------------------------
