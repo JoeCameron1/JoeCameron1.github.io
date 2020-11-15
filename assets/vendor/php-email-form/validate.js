@@ -1,6 +1,6 @@
 /**
 * validate.js
-* PHP Email Form Validation
+* Contact Form Validation
 * Joseph Cameron
 */
 !(function($) {
@@ -128,37 +128,18 @@
       type: "POST",
       url: action,
       data: data,
-      timeout: 40000
-    }).done( function(msg){
-      if (msg.trim() == 'OK') {
+      dataType: 'json',
+      timeout: 40000,
+      success: function (data, status, xhr) {
         this_form.find('.loading').slideUp();
         this_form.find('.sent-message').slideDown();
         this_form.find("input:not(input[type=submit]), textarea").val('');
-      } else {
+      },
+      error: function (jqXhr, textStatus, errorMessage) {
+        var error_msg = "Form submission failed!<br>Try another communication method.";
         this_form.find('.loading').slideUp();
-        if(!msg) {
-          msg = 'Form submission failed and no error message returned from: ' + action + '<br>';
-        }
-        this_form.find('.error-message').slideDown().html(msg);
+        this_form.find('.error-message').slideDown().html(error_msg);
       }
-    }).fail( function(data){
-      console.log(data);
-      var error_msg = "Form submission failed!<br>";
-      if(data.statusText || data.status) {
-        error_msg += 'Status:';
-        if(data.statusText) {
-          error_msg += ' ' + data.statusText;
-        }
-        if(data.status) {
-          error_msg += ' ' + data.status;
-        }
-        error_msg += '<br>';
-      }
-      if(data.responseText) {
-        error_msg += data.responseText;
-      }
-      this_form.find('.loading').slideUp();
-      this_form.find('.error-message').slideDown().html(error_msg);
     });
   }
 
