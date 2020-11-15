@@ -1,2 +1,2 @@
 # JoeCameron1.github.io
-My Personal Portfolio Website
+This is the code repository for my personal portfolio website, which is hosted at [josephcameron.info](josephcameron.info).
